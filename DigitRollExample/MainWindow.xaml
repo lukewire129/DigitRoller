@@ -29,5 +29,20 @@
             <units:DigitRollControl x:Name="rollTextMin" Margin="10,0" />
             <units:DigitRollControl x:Name="rollTextSec" />
         </StackPanel>
+        <StackPanel
+            Grid.Row="1"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Orientation="Horizontal">
+            <units:DigitRollControl x:Name="ChangeText" Height="50" />
+            <TextBox
+                x:Name="InputText"
+                Width="100"
+                Height="30" />
+            <Button
+                Width="100"
+                Height="30"
+                Click="Button_Click" />
+        </StackPanel>
     </Grid>
 </Window>

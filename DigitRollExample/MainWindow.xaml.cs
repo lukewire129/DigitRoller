@@ -27,5 +27,10 @@ namespace DigitRollExample
             rollTextMin.Numeric = tm.Minute.ToString ("D2");
             rollTextSec.Numeric = tm.Second.ToString("D2");
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ChangeText.Numeric = InputText.Text;
+        }
     }
 }

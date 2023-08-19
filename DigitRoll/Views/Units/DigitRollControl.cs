@@ -93,7 +93,7 @@ namespace DigitRoll.Views.Units
                             }
                             else
                             {
-                                for (int i = 0; i < cnt; i++)
+                                for (int i = 0; i < Math.Abs(cnt); i++)
                                 {
                                     rollControl.Numerics.RemoveAt (rollControl.Numerics.Count () - 1);
                                 }
