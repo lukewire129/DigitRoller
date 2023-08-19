@@ -3,6 +3,7 @@
 
 - .net Core7
 - WPF
+- [내용 간략히 정리](https://blog.naver.com/lukewire129/223187637799)
 
 
 
