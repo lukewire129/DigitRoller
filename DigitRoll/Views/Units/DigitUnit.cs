@@ -42,14 +42,14 @@ namespace DigitRoll.Views.Units
             }
             if (totalMove.Value == 0)
                 return;
-            int speed = 300 / totalMove.Value;
-            Task.Run (async () =>
+         
+            Application.Current.Dispatcher.Invoke (() =>
             {
-                Application.Current.Dispatcher.Invoke (() =>
-                {
-                    int nowData = digit.GetContent ().Value;
-                    digit.StartRollUpAnimation ((nowData).ToString (), speed / 2, totalMove.Value);
-                });
+                int speed = 300 / totalMove.Value;
+                int nowData = digit.GetContent ().Value + 1;
+                if (nowData >= 10)
+                    nowData = 0;
+                digit.StartRollUpAnimation ((nowData).ToString (), speed / 2, totalMove.Value - 1);
             });
         }
         private async void StartRollUpAnimation(string value, int delay, int maxCnt)
@@ -61,24 +61,29 @@ namespace DigitRoll.Views.Units
 
             DoubleAnimation animation = GetAnimation (0, targetY, msec);
 
-            animation.Completed += (async(sender, e) =>
+            animation.Completed += (sender, e) =>
             {
-                this.Text = _val;
-                LowerToUp (msec);
-                await Task.Delay (msec);
-                if (_maxCnt == 0)
-                    return;
-                int nowData = this.GetContent ().Value;
-                if (nowData == 9)
-                    nowData = 0;
-                else
-                    nowData++;
-                StartRollUpAnimation (nowData.ToString (), msec, _maxCnt - 1);
-            });
+                Application.Current.Dispatcher.Invoke (async() =>
+                {
+                    this.Text = _val;
+                    LowerToUp (msec);
+                    //this.RenderTransform = new TranslateTransform (0, 0);
+                    await Task.Delay (msec).ContinueWith ((x) =>
+                    {
+                        Application.Current.Dispatcher.Invoke (async () =>
+                        {
+                            if (_maxCnt == 0)
+                                return;
+                            int nowData = this.GetContent ().Value + 1;
+                            if (nowData >= 10)
+                                nowData = 0;
+                            StartRollUpAnimation (nowData.ToString (), msec, _maxCnt - 1);
+                        });
+                    });
+                });
+            };
 
-            // 애니메이션을 TextBlock에 적용
-            var transform = new TranslateTransform ();
-            this.RenderTransform = transform;
+            this.RenderTransform = new TranslateTransform ();
             RenderTransform.BeginAnimation (TranslateTransform.YProperty, animation);
         }
         private DoubleAnimation GetAnimation(double from, double to, double msec)
@@ -95,13 +100,18 @@ namespace DigitRoll.Views.Units
         {
             double targetY = this.ActualHeight; // 텍스트를 위로 올릴 목표 위치
             DoubleAnimation animation = GetAnimation (targetY, 0, msec);
-            var transform = new TranslateTransform ();
-            this.RenderTransform = transform;
+            this.RenderTransform = new TranslateTransform ();
             RenderTransform.BeginAnimation (TranslateTransform.YProperty, animation);
         }
+        TextBlock tb;
         static DigitUnit()
         {
             DefaultStyleKeyProperty.OverrideMetadata (typeof (DigitUnit), new FrameworkPropertyMetadata (typeof (DigitUnit)));
+        }
+        public override void OnApplyTemplate()
+        {
+            base.OnApplyTemplate ();
+            tb = GetTemplateChild("PART_RollingText") as TextBlock;
         }
         public DigitUnit()
         {
@@ -119,7 +129,7 @@ namespace DigitRoll.Views.Units
             if (_newData >= _nowData)
                 return _newData - _nowData;
 
-            return 9 - _nowData + _newData;
+            return 10 - _nowData + _newData;
         }
 
         public int? GetContent()

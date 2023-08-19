@@ -23,8 +23,8 @@ namespace DigitRollExample
         private void Timer_Tick(object? sender, System.EventArgs e)
         {
             DateTime tm = DateTime.Now;
-            rollTextHour.Numeric = tm.Hour.ToString("D2");
-            rollTextMin.Numeric = tm.Minute.ToString("D2");
+            rollTextHour.Numeric = tm.Hour.ToString ("D2");
+            rollTextMin.Numeric = tm.Minute.ToString ("D2");
             rollTextSec.Numeric = tm.Second.ToString("D2");
         }
     }

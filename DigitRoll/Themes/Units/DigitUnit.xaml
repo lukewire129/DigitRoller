@@ -10,7 +10,7 @@
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}">
-                        <Viewbox Stretch="UniformToFill">
+                        <Viewbox Stretch="Fill">
                             <TextBlock
                                 x:Name="PART_RollingText"
                                 Foreground="{Binding TextColor, RelativeSource={RelativeSource AncestorType=units:DigitRollControl}}"

@@ -9,15 +9,25 @@
     Width="800"
     Height="450"
     mc:Ignorable="d">
-    <StackPanel
-        Height="auto"
-        Background="Red"
-        Orientation="Horizontal">
-        <units:DigitRollControl x:Name="rollTextHour" Height="50" />
-        <units:DigitRollControl
-            x:Name="rollTextMin"
-            Height="50"
-            Margin="10,0" />
-        <units:DigitRollControl x:Name="rollTextSec" Height="50" />
-    </StackPanel>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackPanel
+            Grid.Row="0"
+            Height="auto"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Orientation="Horizontal">
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type units:DigitRollControl}">
+                    <Setter Property="Height" Value="100" />
+                </Style>
+            </StackPanel.Resources>
+            <units:DigitRollControl x:Name="rollTextHour" />
+            <units:DigitRollControl x:Name="rollTextMin" Margin="10,0" />
+            <units:DigitRollControl x:Name="rollTextSec" />
+        </StackPanel>
+    </Grid>
 </Window>
