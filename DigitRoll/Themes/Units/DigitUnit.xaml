@@ -1,0 +1,25 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:units="clr-namespace:DigitRoll.Views.Units">
+    <Style TargetType="{x:Type units:DigitUnit}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type units:DigitUnit}">
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}">
+                        <Viewbox Stretch="UniformToFill">
+                            <TextBlock
+                                x:Name="PART_RollingText"
+                                Foreground="{Binding TextColor, RelativeSource={RelativeSource AncestorType=units:DigitRollControl}}"
+                                Text="{TemplateBinding Text}" />
+
+                        </Viewbox>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary> 
