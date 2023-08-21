@@ -1,5 +1,5 @@
-# DigitRoll
- WPF DigitRollLabel
+# DigitRoller
+ WPF DigitRoller
 
 - .net Core7
 - WPF
