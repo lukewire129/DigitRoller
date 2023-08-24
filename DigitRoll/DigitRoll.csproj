@@ -4,6 +4,19 @@
     <TargetFramework>net7.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <PackageId>DigitRoller</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>lukewire</Authors>
+    <Company>lukewire</Company>
+    <Product>lukewire</Product>
+    <Copyright>lukewire</Copyright>
+    <Description>
+      DigitRoller Component
+    </Description>
+    <RepositoryUrl>https://github.com/lukewire129/DigitRoll</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/lukewire129/DigitRoll</PackageProjectUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>lukewire,wpf,component,opensource,DigitRoller</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
