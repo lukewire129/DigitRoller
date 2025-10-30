@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33723.286
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitRoll", "DigitRoll\DigitRoll.csproj", "{35189BD1-93AA-4C55-BBFC-AEBBC89B8AD5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitRoll", "src\DigitRoll\DigitRoll.csproj", "{35189BD1-93AA-4C55-BBFC-AEBBC89B8AD5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitRollExample", "DigitRollExample\DigitRollExample.csproj", "{D31F00B4-7ED8-498F-A43D-D0FDF9BC8948}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitRollExample", "src\Sample\Basic\DigitRollExample.csproj", "{D31F00B4-7ED8-498F-A43D-D0FDF9BC8948}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitRollerMVVM", "src\Sample\DigitRollerMVVM\DigitRollerMVVM.csproj", "{E75A2864-23A6-47B4-9A5D-342A9CBEDE1D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{D31F00B4-7ED8-498F-A43D-D0FDF9BC8948}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D31F00B4-7ED8-498F-A43D-D0FDF9BC8948}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D31F00B4-7ED8-498F-A43D-D0FDF9BC8948}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E75A2864-23A6-47B4-9A5D-342A9CBEDE1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E75A2864-23A6-47B4-9A5D-342A9CBEDE1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E75A2864-23A6-47B4-9A5D-342A9CBEDE1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E75A2864-23A6-47B4-9A5D-342A9CBEDE1D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

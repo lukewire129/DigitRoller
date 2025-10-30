@@ -22,7 +22,7 @@
             Orientation="Horizontal">
             <StackPanel.Resources>
                 <Style TargetType="{x:Type units:DigitRollControl}">
-                    <Setter Property="Height" Value="100" />
+                    <Setter Property="Height" Value="50" />
                 </Style>
             </StackPanel.Resources>
             <units:DigitRollControl x:Name="rollTextHour" />
